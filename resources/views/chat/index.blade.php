@@ -1,5 +1,11 @@
 <h1>Realtime Chat</h1>
 
+<h3>
+    Login sebagai: {{ auth()->user()->name }}
+</h3>
+
+<hr>
+
 @foreach($messages as $msg)
     <p>{{ $msg->message }}</p>
 @endforeach
@@ -16,7 +22,7 @@
     </select>
 
     <input type="text" name="message" placeholder="Ketik pesan...">
-    
+
     <button type="submit">
         Kirim
     </button>
