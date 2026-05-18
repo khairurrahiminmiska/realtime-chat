@@ -6,9 +6,11 @@
 
 <hr>
 
-@foreach($messages as $msg)
-    <p>{{ $msg->message }}</p>
-@endforeach
+<div id="chat-box">
+    @foreach($messages as $msg)
+        <p>{{ $msg->message }}</p>
+    @endforeach
+</div>
 
 <form method="POST" action="/chat/send">
     @csrf
@@ -27,3 +29,5 @@
         Kirim
     </button>
 </form>
+
+@vite('resources/js/app.js')
