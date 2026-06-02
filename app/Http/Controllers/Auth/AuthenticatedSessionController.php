@@ -28,7 +28,11 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        auth()->user()->update([
+            'is_online' => true
+        ]);
+
+        return redirect()->intended('/chat');
     }
 
     /**
@@ -36,6 +40,10 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
+        auth()->user()->update([
+            'is_online' => false
+        ]);
+
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();

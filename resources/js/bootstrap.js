@@ -5,9 +5,9 @@ window.Pusher = Pusher;
 
 window.Echo = new Echo({
     broadcaster: 'reverb',
-    key: import.meta.env.VITE_REVERB_APP_KEY,
-    wsHost: import.meta.env.VITE_REVERB_HOST,
-    wsPort: import.meta.env.VITE_REVERB_PORT,
+    key: 'my-chat-key',
+    wsHost: window.location.hostname,
+    wsPort: 8080,
     forceTLS: false,
     enabledTransports: ['ws'],
 });

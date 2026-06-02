@@ -1,8 +1,9 @@
 import './bootstrap';
 
-window.Echo.channel('chat-channel')
+window.Echo.channel('public-chat')
     .listen('.MessageSent', (e) => {
-        alert('Pesan baru: ' + e.message.message);
+
+        console.log('EVENT MASUK:', e);
 
         const chatBox = document.querySelector('#chat-box');
 
